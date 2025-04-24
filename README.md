@@ -15,7 +15,7 @@ Build a predictive model to classify transactions as fraudulent or legitimate ba
 - `Time`, `Amount`: Raw features (preprocessing needed).
 - `Class`: Target variable (`0` = legitimate, `1` = fraud)
 
-## 🛠Tools & Techniques
+## Tools & Techniques
 - Data preprocessing (scaling, undersampling/oversampling with SMOTE)
 - Models: Logistic Regression, Random Forest, XGBoost
 - Evaluation: Precision, Recall, F1-Score, ROC-AUC
