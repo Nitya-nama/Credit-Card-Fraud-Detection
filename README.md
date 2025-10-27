@@ -1,201 +1,167 @@
-### 💳 Credit Card Fraud Detection Dashboard ###
+# 💳 Credit Card Fraud Detection Dashboard  
 
-A machine learning–based web app that detects fraudulent credit card transactions using a Logistic Regression model trained on the popular Kaggle credit card dataset.
-The app lets you upload transaction data, visualize fraud statistics, and download the prediction results.
+![Python](https://img.shields.io/badge/Python-3.8%2B-blue.svg)
+![Streamlit](https://img.shields.io/badge/Framework-Streamlit-red.svg)
+![Scikit-learn](https://img.shields.io/badge/ML-ScikitLearn-orange.svg)
+![Status](https://img.shields.io/badge/Status-Completed-success.svg)
 
+A **Machine Learning–based web app** that detects fraudulent credit card transactions using a **Logistic Regression** model trained on the Kaggle Credit Card dataset.  
+The app allows users to upload transaction data, visualize fraud statistics, and download prediction results — all within a neat and interactive Streamlit dashboard.
 
 ---
 
-🧠 Project Overview
+## 🧠 Project Overview  
 
 This project is divided into two main parts:
 
-1. Model Training (train_model.py)
+### **1️⃣ Model Training (`train_model.py`)**
+- Loads the Kaggle credit card fraud dataset  
+- Scales features using `StandardScaler`  
+- Trains a **Logistic Regression** classifier  
+- Saves both the model and the scaler as `.pkl` files  
 
-Loads the Kaggle credit card fraud dataset
-
-Scales features using StandardScaler
-
-Trains a Logistic Regression classifier
-
-Saves both the model and the scaler as .pkl files
-
-
-
-2. Streamlit App (app.py)
-
-Loads the pre-trained model and scaler
-
-Accepts a CSV file upload
-
-Predicts whether each transaction is Fraudulent or Legit
-
-Displays statistics, donut/pie charts, and box/violin plots
-
-Allows users to download the results as a CSV
-
-
-
-
+### **2️⃣ Streamlit App (`app.py`)**
+- Loads the pre-trained model and scaler  
+- Accepts a CSV upload  
+- Predicts whether each transaction is **Fraudulent** or **Legit**  
+- Displays fraud statistics with **pie, box, and violin plots**  
+- Allows downloading the results as a CSV  
 
 ---
 
-📁 Project Structure
+## 📁 Project Structure  
 
 credit-card-fraud-detection/
 │
-├── creditcard.csv               # Dataset (from Kaggle)
-├── train_model.py               # Model training script
-├── app.py                       # Streamlit dashboard
-├── fraud_model.pkl              # Saved trained model
-├── scaler.pkl                   # Saved scaler
-└── README.md                    # Project documentation
+├── creditcard.csv # Dataset (from Kaggle)
+├── train_model.py # Model training script
+├── app.py # Streamlit dashboard
+├── fraud_model.pkl # Trained model
+├── scaler.pkl # Saved scaler
+├── requirements.txt # Dependencies list
+└── README.md # Project documentation
 
 
 ---
 
-⚙ Installation
+## ⚙ Installation  
 
-1. Clone the repository
+<details>
+<summary>📦 Step-by-step setup</summary>
+
+## 1️⃣ Clone the repository  
 
 git clone https://github.com/your-username/credit-card-fraud-detection.git
 cd credit-card-fraud-detection
 
-2. Create a virtual environment (recommended)
+## 2️⃣ Create a virtual environment (recommended)
 
 python -m venv venv
 source venv/bin/activate      # macOS/Linux
 venv\Scripts\activate         # Windows
 
-3. Install dependencies
-
+## 3️⃣ Install dependencies
 pip install -r requirements.txt
 
-If you don’t have a requirements.txt, here are the needed packages:
+
+If you don’t have the file, install manually:
 
 pip install streamlit pandas scikit-learn matplotlib seaborn joblib
 
+</details>
 
----
+## 📊 Dataset
 
-📊 Dataset
+Use the Kaggle dataset:
+🔗 Credit Card Fraud Detection – Kaggle
 
-Use the Kaggle Credit Card Fraud Detection dataset:
-🔗 https://www.kaggle.com/mlg-ulb/creditcardfraud
+After downloading, place it in your project folder as:
 
-After downloading, place the file in your project folder as creditcard.csv.
+creditcard.csv
 
+## 🧩 Model Training
 
----
-
-🧩 Training the Model
-
-Run this once to train and save your model:
+Run the following command to train and save your model:
 
 python train_model.py
+
 
 You should see:
 
 ✅ Model trained successfully!
-💾 Model and scaler saved successfully!
+💾 Model and Scaler saved successfully!
 
-This will create two files:
+
+This creates:
 
 fraud_model.pkl
 
 scaler.pkl
 
+## 🖥 Running the Streamlit Dashboard
 
-
----
-
-🖥 Running the Streamlit App
-
-Once the model is ready, launch the web dashboard:
+Once the model is ready, start the app:
 
 streamlit run app.py
 
-Then open the local URL it shows (usually http://localhost:8501).
 
+Then open the provided local URL (usually http://localhost:8501
+).
 
----
+## 🧭 How to Use
 
-🧭 How to Use
+1️⃣ Upload a CSV file with transaction data (same format as creditcard.csv)
+2️⃣ The app predicts Fraudulent or Legit for each transaction
+3️⃣ View:
 
-1. Upload a transaction CSV file (same format as creditcard.csv)
+Prediction summary (fraud vs legit counts)
 
+Pie chart showing fraud percentage
 
-2. Wait for predictions to load
+Box and violin plots comparing transaction amounts
+4️⃣ Download the predictions as a CSV
 
+## 📊 Example Output
 
-3. Explore:
-
-Prediction summary (total fraud vs legit)
-
-Donut and Pie charts for fraud distribution
-
-Box & Violin plots for transaction amount comparison
-
-
-
-4. Download results as a CSV
-
-
-
-
----
-
-🧾 Example Output
-
-Fraud Detection Summary
-
+Fraud Detection Summary:
 ✅ Legit: 284,315
-
 🚨 Fraud: 492
 
+Interactive Visuals:
 
-Interactive charts showing the proportion of frauds
+📈 Pie chart for fraud ratio
 
-CSV download of predictions
+📦 Box & 🎻 Violin plots for transaction amounts
 
+## CSV Download:
 
+Includes a “Prediction” column with results
 
----
+## 🧰 Tech Stack
 
-🧰 Tech Stack
+🐍 Python
+📊 Pandas, NumPy, Scikit-learn
+🎨 Matplotlib, Seaborn
+🌐 Streamlit (for interactive dashboard)
 
-Python
+## 🚀 Future Enhancements
 
-Pandas, NumPy, scikit-learn
+Add Plotly interactive visualizations
 
-Matplotlib, Seaborn
+Integrate real-time fraud detection API
 
-Streamlit (for frontend dashboard)
+Try RandomForest or XGBoost models
 
+Deploy to Streamlit Cloud, Render, or AWS
 
+## 🧾 Relation to Big Data Analytics
 
----
+This project relates to Big Data Analytics as it processes and analyzes large volumes of transactional data to identify fraudulent patterns.
+In real-world banking systems, millions of transactions are generated every day, exhibiting the volume, velocity, and variety of Big Data.
+By applying machine learning–based predictive analytics, the system detects anomalies that indicate fraud.
+The dashboard visualizes insights from massive data, demonstrating the power of Big Data–driven decision-making.
 
-📦 Future Improvements
+## 👩‍💻 Author
 
-Add Plotly interactive charts
-
-Integrate real-time detection API
-
-Try advanced models like RandomForest or XGBoost
-
-Deploy on Streamlit Cloud / AWS / Render
-
-
-
----
-
-👩‍💻 Author
-
-Nitya
+Nitya Nama
 Machine Learning & Data Science Enthusiast
-
-
----
-
-Would you like me to generate a short requirements.txt and train_model.py filename version too so you can directly zip and run the whole project setup?
